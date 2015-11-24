@@ -11,9 +11,8 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-#include "notes.h" //Нотная тетрадь
-
-#define DEFAULT_VOLUME 100
+#include "notes.h"      //Нотная тетрадь
+#include "playmusic.h"  //Forward declaration
 
 /**
 	Initialize timer1
@@ -105,14 +104,3 @@ const int PinkPanther[] = {
     E5, 2, D5, 8, B4, 2, A4, 8, H4, 4, E4, 16, A4x, 16, A4, 8, A4x, 16, A4, 8, A4x, 16, A4, 8, H4, 16, E4, 16, D4, 16, E4, 2, E4, 2, E4, 2, //0,48
     MUSIC_END
 };
-
-
-int main(void){
-	//Setting up a controller
-	InitMusic();  	
-	while(1){
-		PlayMusic( PinkPanther, 25);
-		_delay_ms( 1000 );
-	}
-    	return 0;
-}
