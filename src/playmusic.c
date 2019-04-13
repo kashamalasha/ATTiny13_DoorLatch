@@ -26,12 +26,17 @@ void InitMusic(){
         	(1 << PB2); //OC1B as output
 
 	// timer1 configuration (for PWM)
-	TCCR1A |=
-        	(1 << COM1B1);  // Clear OC1A/OC1B on compare match
+	/* This section setup a PWM for ATMega328P (Arduino UNO R3)
+     * TCCR1A |=
+     *   	(1 << COM1B1);  // Clear OC1A/OC1B on compare match
+     *
+     * TCCR1B |=
+     *   	(1 << WGM13) |	//mode 8, PWM, Phase and Frequency Correct (TOP value is ICR1)
+     *   	(1 << CS11); 		//prescaler(8)
+     */
 
-	TCCR1B |=
-        	(1 << WGM13) |	//mode 8, PWM, Phase and Frequency Correct (TOP value is ICR1)
-        	(1 << CS11); 		//prescaler(8)
+     //Setup FastMode PWM for ATTiny13
+
 }
 
 
